@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TokenService {
+
+  constructor() { }
+
+  handle(token) {
+    this.set(token);
+  }
+
+  set(token) {
+    localStorage.setItem('token', token);
+  }
+
+  get() {
+    return localStorage.getItem('token');
+  }
+
+  remove() {
+    localStorage.removeItem('token');
+  }
+
+  loggedIn() {
+    const token = this.get();
+
+    if (token != null) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+}

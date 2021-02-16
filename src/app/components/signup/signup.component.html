@@ -1,0 +1,83 @@
+<div class="container col-sm-12 col-md-10 col-lg-7">
+  <!-- Default form register -->
+  <form class="text-center border border-light p-5 my-5" #signUpForm=ngForm (ngSubmit)="onSubmit()">
+
+    <p class="h4 mb-4">Regístrate</p>
+
+    <div class="form-row mb-4">
+      <div class="col">
+        <!-- First name -->
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" name="first_name"
+          placeholder="Nombres" [(ngModel)]="form.first_name" minlength="2" required>
+        <div *ngIf="error != null">
+          <div *ngIf="error.first_name != null">
+            <small class="form-text text-muted mb-4">
+              {{ error.first_name }}
+            </small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Last name -->
+        <input type="text" id="defaultRegisterFormLastName" class="form-control" minlength="2" name="last_name"
+          placeholder="Apellidos" [(ngModel)]="form.last_name" required>
+        <div *ngIf="error != null">
+          <div *ngIf="error.last_name != null">
+            <small class="form-text text-muted mb-4">
+              {{ error.last_name }}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-mail -->
+
+    <div>
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" name="email" placeholder="E-mail"
+        [(ngModel)]="form.email" #email="ngModel" required>
+      <div *ngIf="error != null">
+        <div *ngIf="error.email != null">
+          <small class="form-text text-muted mb-4">
+            {{ error.email }}
+          </small>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Password -->
+    <input type="password" id="defaultRegisterFormPassword" class="form-control mb-4" name="password"
+      placeholder="Contraseña" aria-describedby="defaultRegisterFormPasswordHelpBlock" [(ngModel)]="form.password"
+      required>
+
+    <input type="password" id="defaultRegisterFormPasswordConfirmation" class="form-control mb-4"
+      name="password_confirmation" placeholder="Confirmar contraseña"
+      aria-describedby="defaultRegisterFormPasswordHelpBlock" [(ngModel)]="form.password_confirmation" required>
+    <div *ngIf="error != null">
+      <div *ngIf="error.password != null">
+        <small class="form-text text-muted mb-4">
+          {{ error.password }}
+        </small>
+      </div>
+    </div>
+    <!-- Phone number -->
+    <input type="tel" minlength="9" maxlength="9" id="defaultRegisterPhonePassword" name="phone_number"
+      class="form-control mb-4" placeholder="Número de celular" aria-describedby="defaultRegisterFormPhoneHelpBlock"
+      [(ngModel)]="form.phone_number" required>
+    <div *ngIf="error != null">
+      <div *ngIf="error.phone_number != null">
+        <small class="form-text text-muted mb-4">
+          {{ error.phone_number }}
+        </small>
+      </div>
+    </div>
+
+    <!-- Sign up button -->
+    <button mdbBtn block="true" class="my-4 purple-gradient" type="submit"
+      [disabled]="!signUpForm.valid">Registrarme</button>
+
+  </form>
+  <!-- Default form register -->
+
+</div>
