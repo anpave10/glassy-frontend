@@ -31,6 +31,5 @@ export class TokenService {
     } else {
       return false;
     }
-
   }
 }

@@ -16,7 +16,12 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { BodyMainComponent } from './components/body-main/body-main.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './Services/data.service';
+import { TokenService } from "./Services/token.service";
+import { AuthService } from "./Services/auth.service";
+import { AlfterLoginService } from "./Services/alfter-login.service";
+import { BeforeLoginService } from "./Services/before-login.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataService, TokenService, AuthService, AlfterLoginService, BeforeLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

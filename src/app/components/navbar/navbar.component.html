@@ -2,7 +2,8 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark  purple sticky-top" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><img src="../../../assets/icono_pintado.png" alt="" width="35" height="35" class="d-inline-block align-top mr-2"><a class="navbar-brand" routerLink="/">Glassy</a></mdb-navbar-brand>
+  <mdb-navbar-brand><img src="../../../assets/icono_pintado.png" alt="" width="35" height="35"
+      class="d-inline-block align-top mr-2"><a class="navbar-brand" routerLink="/">Glassy</a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
@@ -31,25 +32,18 @@
 
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="login" mdbWavesEffect>Iniciar Sesión</a>
-      </li>
-      <!--<li class="nav-item">
         <a class="nav-link">
           <div class="btn-group" mdbDropdown>
             <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
             <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-              <a class="dropdown-item" routerLink="login">Iniciar Sesión</a>
-              <a class="dropdown-item" routerLink="profile">Mi Perfil</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
+              <a class="dropdown-item" routerLink="login" *ngIf="!loggedIn">Iniciar Sesión</a>
+              <a class="dropdown-item" routerLink="profile" *ngIf="loggedIn">Mi Perfil</a>
+              <a class="dropdown-item" (click)="logout($event)" *ngIf="loggedIn">Cerrar Sesión</a>
             </div>
           </div>
         </a>
-      </li>-->
+      </li>
     </ul>
   </links>
   <!-- Collapsible content -->
 
-</mdb-navbar>
-<!--/.Navbar-->
